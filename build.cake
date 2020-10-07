@@ -1,4 +1,6 @@
 #addin nuget:?package=Cake.Figlet&version=1.3.1
+#addin "Cake.DocFx"
+#tool "docfx.console"
 
 // Default MSBuild configuration arguments
 var configuration = Argument("configuration", "Release");
@@ -109,6 +111,41 @@ Task("Default")
     .IsDependentOn("Build")
     .IsDependentOn("Test")
     .IsDependentOn("Pack");
+
+Task("BuildDocs")
+.Does(() => DocFxBuild("./docs/docfx.json"));
+
+Task("CopyDocsToVersionedDirectories")
+.IsDependentOn("BuildDocs")
+.Does(() =>
+{
+    Console.WriteLine("Copying docs to docs/temp/latest");
+
+    if (DirectoryExists("./docs/temp/latest"))
+    {
+        DeleteDirectory("./docs/temp/latest", recursive: true);
+    }
+    
+    EnsureDirectoryExists("./docs/temp");
+    CopyDirectory("./docs/_site/", "./docs/temp/latest/");
+
+    var travisTag = "v1.0.0-alpha1";
+    //var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    if (string.IsNullOrEmpty(travisTag))
+    {
+        Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
+        return;
+    }
+
+    var taggedVersion = travisTag.TrimStart('v');
+    var tagDocsDirectory = string.Format("./docs/temp/{0}", taggedVersion);
+    Console.WriteLine("Copying docs to " + tagDocsDirectory);
+    CopyDirectory("./docs/_site/", tagDocsDirectory);
+});
+
+Task("Docs")
+    .IsDependentOn("BuildDocs")
+    .IsDependentOn("CopyDocsToVersionedDirectories");
 
 // Default task
 var target = Argument("target", "Default");
