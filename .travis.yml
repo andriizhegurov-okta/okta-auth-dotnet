@@ -10,6 +10,6 @@ deploy:
   skip_cleanup: true
   keep_history: true
   github_token: "$GITHUB_TOKEN"
-  local_dir: docs/_site
+  local_dir: docs/temp
   on:
     branch: master
