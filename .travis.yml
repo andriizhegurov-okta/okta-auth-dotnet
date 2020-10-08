@@ -3,7 +3,7 @@ mono: latest
 # .NET Core
 dotnet: 3.1 
 script:
- # - ./build.sh
+  - ./build.sh
   - if [[ $DEPLOY_DOCS ]]; then ./build.sh -t Docs; fi  
 deploy:
   provider: pages
@@ -13,4 +13,3 @@ deploy:
   local_dir: docs/_site
   on
     branch: a-research-in-generation-and-publishing-api-docs
-    
