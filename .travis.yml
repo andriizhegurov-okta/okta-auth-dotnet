@@ -8,7 +8,6 @@ script:
 deploy:
 - provider: pages
   skip_cleanup: true
+  keep_history: true
   github_token: "$GITHUB_TOKEN"
   local_dir: docs/_site
-  on:
-    branch: gh-pages
