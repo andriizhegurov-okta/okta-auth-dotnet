@@ -6,8 +6,8 @@ script:
  # - ./build.sh
   - if [[ $DEPLOY_DOCS ]]; then ./build.sh -t Docs; fi  
 deploy:
-- provider: pages
-  skip_cleanup: true
-  keep_history: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: docs/_site
+  - provider: pages
+    skip_cleanup: true
+    keep_history: true
+    github_token: "$GITHUB_TOKEN"
+    local_dir: docs/_site
