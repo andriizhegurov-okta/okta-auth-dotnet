@@ -176,7 +176,7 @@ Task("CloneExistingDocs")
         DeleteDirectory(tempDir, recursive: true);
     }
 
-    GitClone("https://github.com/okta/okta-auth-dotnet.git",
+    GitClone("https://github.com/andriizhegurov-okta/okta-auth-dotnet.git",
             tempDir,
             new GitCloneSettings
             {
