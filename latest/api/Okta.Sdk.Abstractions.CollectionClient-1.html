@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CollectionClient&lt;T&gt;
    | Okta .NET Authentication SDK Documentation ">
-    <meta name="generator" content="docfx 2.48.1.0">
+    <meta name="generator" content="docfx 2.51.0.0">
     
     <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,8 @@
   
   <h1 id="Okta_Sdk_Abstractions_CollectionClient_1" data-uid="Okta.Sdk.Abstractions.CollectionClient`1" class="text-break">Class CollectionClient&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A collection of <a class="xref" href="Okta.Sdk.Abstractions.BaseResource.html">BaseResource</a> that can be enumerated asynchronously.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -126,10 +127,15 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Abstractions.BaseResource.html">BaseResource</a> type in the collection.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Okta_Sdk_Abstractions_CollectionClient_1_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Using this object with LINQ will automatically enumerate a paginated Okta collection.
+See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Okta_Sdk_Abstractions_CollectionClient_1__ctor_" data-uid="Okta.Sdk.Abstractions.CollectionClient`1.#ctor*"></a>
@@ -215,7 +221,9 @@
   </table>
   <a id="Okta_Sdk_Abstractions_CollectionClient_1_GetPagedEnumerator_" data-uid="Okta.Sdk.Abstractions.CollectionClient`1.GetPagedEnumerator*"></a>
   <h4 id="Okta_Sdk_Abstractions_CollectionClient_1_GetPagedEnumerator_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Abstractions.CollectionClient`1.GetPagedEnumerator(System.Threading.CancellationToken)">GetPagedEnumerator(CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns an enumerator that can be used to retrieve items from an Okta collection page-by-page.
+Use this only if you need to enumerate collections manually; otherwise, use LINQ.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -234,7 +242,8 @@
       <tr>
         <td><span class="xref">System.Threading.CancellationToken</span></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>The cancellation token.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -249,10 +258,14 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Okta.Sdk.Abstractions.IPagedCollectionEnumerator-1.html">IPagedCollectionEnumerator</a>&lt;T&gt;</td>
-        <td></td>
+        <td><p>An enumerator that retrieves items from an Okta collection page-by-page.</p>
+</td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Okta_Sdk_Abstractions_CollectionClient_1_GetPagedEnumerator_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>/// See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.</p>
+</div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Okta.Sdk.Abstractions.ICollectionClient-1.html">ICollectionClient&lt;T&gt;</a>
