@@ -13,7 +13,7 @@ deploy:
   local_dir: docs/temp
   on:
     branch: master
-    condition: "$DEPLOY_DOCS = true AND $TRAVIS_PULL_REQUEST = false"
+    condition: "$DEPLOY_DOCS = true && $TRAVIS_PULL_REQUEST = false"
 - provider: pages
   skip_cleanup: true
   keep_history: true
