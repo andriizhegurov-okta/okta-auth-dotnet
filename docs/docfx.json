@@ -52,7 +52,8 @@
       "_appTitle": "Okta .NET Authentication SDK Documentation",
       "_appFooter": "Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.",
       "_appLogoPath": "images/okta-dev-logo.png",
-      "_appFaviconPath": "images/favicon.ico"
+      "_appFaviconPath": "images/favicon.ico",
+      "_disableContribution": "true" 
 	},
     "dest": "_site",
     "globalMetadataFiles": [],

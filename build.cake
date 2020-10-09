@@ -2,7 +2,6 @@
 #addin nuget:?package=Cake.GitPackager&version=0.1.3.2
 #addin nuget:?package=Cake.Git&version=0.22.0
 #addin nuget:?package=Cake.FileHelpers&version=3.3.0
-#addin nuget:?package=Cake.DocFx&version=0.13.1
 #tool nuget:?package=docfx.console&version=2.51.0
 
 // Helper method for setting a lot of file attributes at once
