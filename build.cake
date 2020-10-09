@@ -2,7 +2,7 @@
 #addin nuget:?package=Cake.GitPackager&version=0.1.3.2
 #addin nuget:?package=Cake.Git&version=0.22.0
 #addin nuget:?package=Cake.FileHelpers&version=3.3.0
-#tool nuget:?package=docfx.console&version=2.52.0
+#tool nuget:?package=docfx.console&version=2.51.0
 
 // Helper method for setting a lot of file attributes at once
 public FilePath[] SetFileAttributes(FilePathCollection files, System.IO.FileAttributes fileAttributes)
