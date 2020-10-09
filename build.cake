@@ -194,8 +194,8 @@ Task("CreateRootRedirector")
 Task("Docs")
     .IsDependentOn("BuildDocs")
     .IsDependentOn("CloneExistingDocs")
-    .IsDependentOn("CopyDocsToVersionedDirectories"),
-    .IsDependentOn("CreateRootRedirector");;
+    .IsDependentOn("CopyDocsToVersionedDirectories")
+    .IsDependentOn("CreateRootRedirector");
 
 // Default task
 var target = Argument("target", "Default");
