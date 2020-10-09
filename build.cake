@@ -188,7 +188,6 @@ Task("Docs")
     .IsDependentOn("CloneExistingDocs")
     .IsDependentOn("CopyDocsToVersionedDirectories");
 
-
 // Default task
 var target = Argument("target", "Default");
 RunTarget(target);
