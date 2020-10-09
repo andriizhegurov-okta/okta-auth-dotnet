@@ -130,19 +130,9 @@ Task("Default")
     .IsDependentOn("Pack");
 
 Task("BuildDocs")
-//.IsDependentOn("Build")
+.IsDependentOn("Build")
 .Does(() =>
 {
-
-    // DocFxBuild(
-    //     "/src/Okta/forks/okta-auth-dotnet/docs/docfx.json",
-    //     new DocFxBuildSettings()
-    //     {
-    //         OutputPath = "./docs",
-    //         WarningsAsErrors = true
-    //     });
-
-
     StartProcess(Context.Tools.Resolve("docfx") ?? Context.Tools.Resolve("docfx.exe"), 
                  "./docs/docfx.json");
 });
