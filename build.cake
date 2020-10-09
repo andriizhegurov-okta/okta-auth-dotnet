@@ -5,7 +5,6 @@
 #addin nuget:?package=Cake.DocFx&version=0.13.1
 #tool nuget:?package=docfx.console&version=2.56.2
 
-
 // Helper method for setting a lot of file attributes at once
 public FilePath[] SetFileAttributes(FilePathCollection files, System.IO.FileAttributes fileAttributes)
 {
@@ -146,8 +145,8 @@ Task("BuildDocs")
 
     var file = File("./tools/docfx.console.2.56.2/tools/docfx");
     Information(file);
-    StartProcess(file, "./docs/docfx.json");
-
+    StartProcess(Context.Tools.Resolve("docfx") ?? Context.Tools.Resolve("docfx.exe"), 
+                 "./docs/docfx.json");
 });
 
 Task("CopyDocsToVersionedDirectories")
