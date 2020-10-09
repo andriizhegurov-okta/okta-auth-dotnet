@@ -183,11 +183,19 @@ Task("CloneExistingDocs")
             });
 });
 
+Task("CreateRootRedirector")
+.Does(() =>
+{
+    FileWriteText("./docs/temp/index.html",
+       // @"<meta http-equiv=""refresh"" content=""0; url=https://developer.okta.com/okta-sdk-dotnet/latest/"">");
+       @"<meta http-equiv=""refresh"" content=""0; url=https://andriizhegurov-okta.github.io/okta-auth-dotnet/latest/"">");
+});
+
 Task("Docs")
     .IsDependentOn("BuildDocs")
     .IsDependentOn("CloneExistingDocs")
-    .IsDependentOn("CopyDocsToVersionedDirectories");
-
+    .IsDependentOn("CopyDocsToVersionedDirectories")
+    .IsDependentOn("CreateRootRedirector");
 
 // Default task
 var target = Argument("target", "Default");
