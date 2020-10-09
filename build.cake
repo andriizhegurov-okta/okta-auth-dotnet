@@ -1,14 +1,9 @@
-// #addin "nuget:?package=Cake.Git&version=0.15.0";
-// #addin "nuget:?package=Cake.GitPackager&version=0.1.1";
-// #addin "nuget:?package=Cake.DocFx&version=0.5.0";
-// #addin "nuget:?package=Cake.FileHelpers&version=1.0.4";
-// #tool "nuget:?package=docfx.console&version=2.26.3";
-#addin "Cake.Figlet";
-#addin "Cake.Git";
-#addin "Cake.GitPackager";
-#addin "Cake.DocFx";
-#addin "Cake.FileHelpers";
-#tool "docfx.console";
+#addin nuget:?package=Cake.Figlet&version=1.3.1
+#addin nuget:?package=Cake.GitPackager&version=0.1.3.2
+#addin nuget:?package=Cake.Git&version=0.22.0
+#addin nuget:?package=Cake.FileHelpers&version=3.3.0
+#addin nuget:?package=Cake.DocFx&version=0.13.1
+#tool nuget:?package=docfx.console&version=2.56.2
 
 
 // Helper method for setting a lot of file attributes at once
@@ -136,18 +131,23 @@ Task("Default")
     .IsDependentOn("Pack");
 
 Task("BuildDocs")
-.IsDependentOn("Build")
+//.IsDependentOn("Build")
 .Does(() =>
 {
-    // FilePath artifactLocation = File("./src/Okta.Sdk/bin/Release/netstandard1.3/Okta.Sdk.dll");
-    // DocFxMetadata(new DocFxMetadataSettings
-    // {
-    //     OutputPath = MakeAbsolute(Directory("./docs/api/")),
-    //     Projects = new[] { artifactLocation }
-    // });
 
-    DocFxBuild("./docs/docfx.json");
- //   Outputs to docs/_site
+    //DocFxBuild("./docs/docfx.json");
+    // DocFxBuild("./docs/docfx.json", 
+    //     new DocFxBuildSettings()
+    //     {
+    //         OutputPath = "./docs",
+    //         WarningsAsErrors = true
+    //     });
+
+
+    var file = File("./tools/docfx.console.2.56.2/tools/docfx");
+    Information(file);
+    StartProcess(file, "./docs/docfx.json");
+
 });
 
 Task("CopyDocsToVersionedDirectories")
