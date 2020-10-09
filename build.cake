@@ -3,7 +3,7 @@
 #addin nuget:?package=Cake.Git&version=0.22.0
 #addin nuget:?package=Cake.FileHelpers&version=3.3.0
 #addin nuget:?package=Cake.DocFx&version=0.13.1
-#tool nuget:?package=docfx.console&version=2.56.2
+#tool nuget:?package=docfx.console&version=2.51.0
 
 // Helper method for setting a lot of file attributes at once
 public FilePath[] SetFileAttributes(FilePathCollection files, System.IO.FileAttributes fileAttributes)
@@ -134,8 +134,8 @@ Task("BuildDocs")
 .Does(() =>
 {
 
-    //DocFxBuild("./docs/docfx.json");
-    // DocFxBuild("./docs/docfx.json", 
+    // DocFxBuild(
+    //     "/src/Okta/forks/okta-auth-dotnet/docs/docfx.json",
     //     new DocFxBuildSettings()
     //     {
     //         OutputPath = "./docs",
@@ -143,8 +143,6 @@ Task("BuildDocs")
     //     });
 
 
-    var file = File("./tools/docfx.console.2.56.2/tools/docfx");
-    Information(file);
     StartProcess(Context.Tools.Resolve("docfx") ?? Context.Tools.Resolve("docfx.exe"), 
                  "./docs/docfx.json");
 });
