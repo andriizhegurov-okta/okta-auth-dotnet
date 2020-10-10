@@ -4,7 +4,8 @@ mono: latest
 dotnet: 3.1 
 script:
   - ./build.sh
-  - if [[ $DEPLOY_DOCS = true ]]; then ./build.sh -t Docs; fi  
+  - if: $DEPLOY_DOCS = true
+    ./build.sh -t Docs;  
 deploy:
 - provider: pages
   skip_cleanup: true
