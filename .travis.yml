@@ -3,11 +3,6 @@ mono: latest
 # .NET Core
 dotnet: 3.1 
 script:
-  - if [ "$TRAVIS_TAG" != "" ]; then echo "*** Tagged build detected"; else echo "*** No tagged build detected"; fi
-  - if [ $TRAVIS_BRANCH = master ]; then echo "*** Building master branch"; else echo "*** Building not a master branch"; fi
-  - if [ $TRAVIS_PULL_REQUEST = false ]; then echo "*** It isn't a pull request build"; else echo "*** It's a pull request build"; fi
-  - if [ $DEPLOY_DOCS = true ]; then echo "*** Documentation deployment is permitted"; else echo "*** Documentation deployment is forbidden"; fi
-  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then echo "*** Docs conditions are met"; else echo "*** Docs conditions are not met"; fi  
   - ./build.sh
   - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then ./build.sh -t Docs; fi  
 deploy:
