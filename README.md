@@ -1,7 +1,6 @@
 
 [![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
 
-
 # Okta .NET Authentication SDK
 
 * [Release status](#release-status)
